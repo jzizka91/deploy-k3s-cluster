@@ -1,0 +1,5 @@
+#########################
+# Uninstall k3s on Master
+#########################
+- name: Uninstall K3S on Master
+  shell: bash /usr/local/bin/k3s-uninstall.sh

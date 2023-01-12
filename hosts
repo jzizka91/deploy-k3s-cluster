@@ -1,0 +1,5 @@
+[master]
+<master-domain>   ansible_user=root
+
+[workers]
+<worker(s)-domains>  ansible_user=root

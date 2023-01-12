@@ -1,0 +1,17 @@
+---
+
+##################
+# Setup k3s Master
+##################
+- name: Install Master
+  shell: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik
+                                                          --kubelet-arg max-pods=1024"
+                                                          sh -
+- name: Get master token
+  shell: cat /var/lib/rancher/k3s/server/node-token
+  register: MASTER_TOKEN
+
+- name: Create a variable for token
+  add_host:
+    name: "{{ inventory_hostname }}"
+    token: "{{ MASTER_TOKEN.stdout_lines[0] }}"

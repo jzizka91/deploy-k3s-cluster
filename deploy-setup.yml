@@ -1,0 +1,15 @@
+###################
+# Setup master node
+###################
+- hosts: master
+  gather_facts: false
+  tasks:
+    - include: tasks/setup-master-node.yml
+
+#####################
+# Setup workers nodes
+#####################
+- hosts: workers
+  gather_facts: false
+  tasks:
+    - include: tasks/setup-workers-nodes.yml

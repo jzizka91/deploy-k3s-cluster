@@ -1,0 +1,10 @@
+---
+
+###################
+# Setup k3s Workers
+###################
+- name: Install Workers
+  shell: curl -sfL https://get.k3s.io | K3S_URL="https://<master-domain>:6443"
+                                        K3S_TOKEN="{{ hostvars['<master-domain>']['token'] }}"
+                                        INSTALL_K3S_EXEC="--kubelet-arg max-pods=1024"
+                                        sh -

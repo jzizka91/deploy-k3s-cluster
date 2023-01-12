@@ -1,0 +1,5 @@
+##########################
+# Uninstall k3s on Workers
+##########################
+- name: Uninstall K3S on Workers
+  shell: bash /usr/local/bin/k3s-agent-uninstall.sh

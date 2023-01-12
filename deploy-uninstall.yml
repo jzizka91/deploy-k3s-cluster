@@ -1,0 +1,15 @@
+##########################
+# Uninstall K3S on Workers
+##########################
+- hosts: workers
+  gather_facts: false
+  tasks:
+    - include: tasks/uninstall-workers-nodes.yml
+
+#########################
+# Uninstall K3S on Master
+#########################
+- hosts: master
+  gather_facts: false
+  tasks:
+    - include: tasks/uninstall-master-node.yml
